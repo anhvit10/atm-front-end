@@ -6,22 +6,58 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body>
-
-        <div class="main">
-            <div class="top">   
-                <img src={{logo}}>
-                <pre>DANCOSAN BANK</pre>
-            </div>
-            <hr>
-            <div class="balance">
-                <h2>Your Account has: {{amount | price}}</h2>
-            </div>
-            <div class="receipt">
-                <p style="text-align: center;">  Do you want to print receipt ?</p>
-                <button class="btn btn-primary"><a (click)="toReceipt()">YES</a></button>
-                <button class="btn btn-danger"><a (click)="toLogout()">NO</a></button>
+        <div class="container">
+            <div class="row">
+                <div class="control-button col-md-2">
+                    <button>
+                        BUTTON 1
+                    </button>
+                    <button (click)="toReceipt()">
+                        BUTTON 2
+                    </button>
+                    <button>
+                        BUTTON 3
+                    </button>
+                </div>
+                <div class="main col-md-8">
+                    <div class="top">   
+                        <img src={{logo}}>
+                        <pre>DANCOSAN BANK</pre>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="balance">
+                                <h2>Your Account has: {{amount | price}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="receipt">
+                                <p> Do you want to print receipt ?</p>
+                                <button class="btn1 btn btn-primary" disabled>OK</button>
+                                <button class="btn btn-danger" disabled>CANCEL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-button col-md-2">
+                    <button>
+                        BUTTON 4
+                    </button>
+                    <button (click)="toLogout()">
+                        BUTTON 5
+                    </button>
+                    <button>
+                        BUTTON 6
+                    </button>
+                </div>
             </div>
         </div>
+
 
     </body>
     <footer>

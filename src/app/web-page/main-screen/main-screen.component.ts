@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-screen.component.css']
 })
 export class MainScreenComponent implements OnInit {
-  logo = "assets/img/logo.png";
-  button = "assets/img/button.png";
+  
+  public logo = "assets/img/logo.png";
+  public button = "assets/img/button.png";
 
   constructor(private router: Router) {}
 
@@ -19,8 +20,16 @@ export class MainScreenComponent implements OnInit {
     }, 60000);
   }
 
-  public toBalance(){
+  public toBalance() {
     this.router.navigateByUrl("/balance");
+  }
+
+  public toWithdraw() {
+    this.router.navigateByUrl("/withdraw");
+  }
+
+  public toHistory() {
+    this.router.navigateByUrl("/history");
   }
 
 }

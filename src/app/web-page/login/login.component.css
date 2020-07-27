@@ -1,41 +1,44 @@
 @import url(https://fonts.googleapis.com/css?family=Audiowide);
 
 .top img {
-    width: auto;
-    height: 200px;
-    margin-left: 30px;  
-}
-.top {
+    width: 210px;
+    height: 120px;
     margin-bottom: -10px;
 }
+
 .top pre {
+    display: inline-block;
     float: right;
-    margin-top:50px;   
+    margin-top: 10px;
     font-size: 70px;
-    margin-right: 250px;
     font-weight: 600;
 }
 
-.form-group input {
-    width: 850px;
+.form-group {
+    width: auto;
+    margin-bottom: 40px;
 }
 
-.container {
-    margin-top: 0px;
-    padding-left: 200px;
-}
-
-.container h1 {
-    margin-left: 100px;
-    margin-bottom: 30px;
+.container h2 {
+    text-align: center;
 }
 
 .container button {
     float: right;
-    margin-top: 30px;
-    margin-right: 75px;
+    margin-top: 24px;
     width: 100px;
     height: 50px;
+}
+
+.control-button {
+    margin-top: 235px;
+}
+
+.control-button button{
+    margin: 30px;
+    margin-right: 6px;
+    height: 50px;
+    width: 150px;
 }
 
 .col {
@@ -52,16 +55,14 @@
     padding-right: 5px;
     padding-top: 0px;
     width: auto;
-}
-
-.form-group {
-    margin-bottom: 40px;
+    margin-left: 150px;
 }
 
 .main {
     border: 3px solid black;
-    height: 653px;
-    margin: 7px;
+    height: 570px;
+    margin-top: 40px;
+    padding-left: 15px;
 }
 
 label {

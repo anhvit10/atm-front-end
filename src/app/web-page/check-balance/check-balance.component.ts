@@ -24,12 +24,6 @@ export class CheckBalanceComponent implements OnInit {
     this.apiService.getBalance().subscribe(
       data => {
         this.amount = data
-      },
-      err => {
-        // if(err.status === 401){
-        //   this.router.navigateByUrl('/');
-        // }
-        alert("Not Found!");
       }
     );
     setTimeout(() => {
@@ -42,9 +36,6 @@ export class CheckBalanceComponent implements OnInit {
     this.accountService.getCardByID(this.cardNo).subscribe(
       data => {
         this.amount=data;
-      },
-      err =>{
-        alert("Wrong!")
       }
     )
   }

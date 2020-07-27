@@ -13,6 +13,8 @@ import { CheckBalanceComponent } from './web-page/check-balance/check-balance.co
 import { PricePipe } from './pipe/price.pipe';
 import { loginService } from './services/login.service';
 import { ReceiptComponent } from './web-page/receipt/receipt.component';
+import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-screen.component';
+import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ReceiptComponent } from './web-page/receipt/receipt.component';
     MainScreenComponent,
     CheckBalanceComponent,
     PricePipe,
-    ReceiptComponent
+    ReceiptComponent,
+    WithdrawScreenComponent,
+    HistoryScreenComponent
     ],
   imports: [
     BrowserModule,

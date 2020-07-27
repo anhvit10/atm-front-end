@@ -6,34 +6,59 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body>
-        <div class="main">
-            <div class="top">
-                <img src={{logo}}>
-                <pre>DANCOSAN BANK</pre>
-            </div>
-            <hr>
-            <div>
-                <div class="row">
-                    <div class="col">
-                        <div  class="left">
-                            <button><a >Withdraw</a></button>
-                            <button><a (click)="toBalance()">Check Balance</a></button>
-                            <button><a >Transfer</a></button>
+        <div class="container">
+            <div class="row">
+                <div class="control-button col-md-2">
+                    <button (click)="toWithdraw()">
+                        BUTTON 1
+                    </button>
+                    <button (click)="toBalance()">
+                        BUTTON 2
+                    </button>
+                    <button>
+                        BUTTON 3
+                    </button>
+                </div>
+                <div class="col-sm-8 main">
+                    <div class="top">
+                        <img src={{logo}}>
+                        <pre>DANCOSAN BANK</pre>
+                    </div>
+                    <hr>
+                    <div class="menu container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div>
+                                    <button>Withdraw</button>
+                                    <button>Check Balance</button>
+                                    <button>Transfer</button>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div>
+                                    <button>View History</button>
+                                    <button>Change PIN</button>
+                                    <button>Exit</button>
+                                </div>
+                            </div>                          
                         </div>
                     </div>
-                
-                    <div class="col">
-                        <div class="right">
-                            <button><a >View History</a></button>
-                            <button><a >Change PIN</a></button>
-                            <button><a >Exit</a></button>
-                        </div>
-                    </div>
-                    
+                </div>
+                <div class="control-button col-md-2">
+                    <button (click)="toHistory()">
+                        BUTTON 4
+                    </button>
+                    <button>
+                        BUTTON 5
+                    </button>
+                    <button>
+                        BUTTON 6
+                    </button>
                 </div>
             </div>
         </div>
     </body>
+
     <footer>
         
     </footer>

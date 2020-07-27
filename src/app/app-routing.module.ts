@@ -6,15 +6,19 @@ import { MainScreenComponent } from './web-page/main-screen/main-screen.componen
 import { CheckBalanceComponent } from './web-page/check-balance/check-balance.component';
 import { CanActiveGuard } from './guard/can-active.guard';
 import { ReceiptComponent } from './web-page/receipt/receipt.component';
+import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-screen.component';
+import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
 
 
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "main", component: MainScreenComponent, canActivate: [CanActiveGuard]},  
-  { path: "balance", component: CheckBalanceComponent, canActivate: [CanActiveGuard]},
-  { path: "receipt", component: ReceiptComponent, canActivate: [CanActiveGuard]},
-  { path: "**", component: PageNotFoundComponent, canActivate: [CanActiveGuard]}
+  { path: "main", component: MainScreenComponent},  
+  { path: "balance", component: CheckBalanceComponent},
+  { path: "receipt", component: ReceiptComponent},
+  { path: "withdraw", component: WithdrawScreenComponent},
+  { path: "history", component: HistoryScreenComponent},
+  { path: "**", component: PageNotFoundComponent}
 ];
 
 @NgModule({
