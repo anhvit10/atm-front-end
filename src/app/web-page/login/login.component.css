@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+.top img {
+    width: auto;
+    height: 200px;
+    margin-left: 30px;  
+}
+.top {
+    margin-bottom: -10px;
+}
+.top pre {
+    float: right;
+    margin-top:50px;   
+    font-size: 70px;
+    margin-right: 250px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 850px;
+}
+
+.container {
+    margin-top: 0px;
+    padding-left: 200px;
+}
+
+.container h1 {
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+
+.container button {
+    float: right;
+    margin-top: 30px;
+    margin-right: 75px;
+    width: 100px;
+    height: 50px;
+}
+
+.col {
+    position: absolute;
+    height: 28px;
+    padding-top: 0px;
+    width: auto;
+}
+
+.check {
+    position: absolute;
+    height: 28px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    width: auto;
+}
+
+.form-group {
+    margin-bottom: 40px;
+}
+
+.main {
+    border: 3px solid black;
+    height: 653px;
+    margin: 7px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 500;
+}

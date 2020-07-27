@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="top">
+                <img src={{logo}}>
+                <pre>DANCOSAN BANK</pre>
+            </div>
+            <hr>
+            <div class="container">
+
+                <form [formGroup] = "loginForm" novalidate>
+                    <h1>Please enter your card's informations</h1>
+                    <div class="container">
+                        <div class="col-sm-5"></div>
+                        <div id="error" class="col-sm-7">
+                            <div *ngIf=alertLogin class="check alert alert-warning" role="alert">
+                                <strong>Card Number or PIN is incorrect!</strong> Please try again!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="col-sm-5"></div>
+                        <div id="block" class="col-sm-7">
+                            <div *ngIf=card.status class="check alert alert-warning" role="alert">
+                                <strong>Your Card Was Blocked</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="iCardNo">Card numbers</label>
+                        <input type="text" id="iCardNo" formControlName="cardNo" class="form-control" minlength="16" maxlength="16">
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.cardNo?.errors?.required && loginForm.controls.cardNo?.touched">
+                            Card Number is required!
+                        </div>
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.cardNo?.errors?.minlength">
+                            Card Number is too short!
+                        </div>
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.cardNo?.errors?.pattern">
+                            Card Number is number only!
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="iPin">PinCode</label>
+                        <input type="password" id="iPin" formControlName="pinCode" class="form-control" minlength="6" maxlength="6">
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.pinCode.errors?.required && loginForm.controls.pinCode.touched">
+                            PIN is required!
+                        </div>
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.pinCode.errors?.minlength">
+                            PIN is too short!
+                        </div>
+                        <div class="col alert alert-danger" role="alert" 
+                        *ngIf="loginForm.controls.pinCode.errors?.pattern">
+                            Card Number is number only!
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-success" type="submit" (click)="OnSubmit()" [disabled]="loginForm.invalid || loginForm.pristine">Login</button>
+            </div>
+        </div>
+    </body>
+    <footer>
+
+    </footer>
+</html>
+
+
+
