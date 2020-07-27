@@ -13,11 +13,11 @@ import { HistoryScreenComponent } from './web-page/history-screen/history-screen
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "main", component: MainScreenComponent},  
-  { path: "balance", component: CheckBalanceComponent},
-  { path: "receipt", component: ReceiptComponent},
-  { path: "withdraw", component: WithdrawScreenComponent},
-  { path: "history", component: HistoryScreenComponent},
+  { path: "main", component: MainScreenComponent, canActivate: [CanActiveGuard]},  
+  { path: "balance", component: CheckBalanceComponent, canActivate: [CanActiveGuard]},
+  { path: "receipt", component: ReceiptComponent, canActivate: [CanActiveGuard]},
+  { path: "withdraw", component: WithdrawScreenComponent, canActivate: [CanActiveGuard]},
+  { path: "history", component: HistoryScreenComponent, canActivate: [CanActiveGuard]},
   { path: "**", component: PageNotFoundComponent}
 ];
 

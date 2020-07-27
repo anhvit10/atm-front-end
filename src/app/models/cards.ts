@@ -2,7 +2,7 @@ import { Account } from './account';
 
 export class Cards {
     cardNo: string;
-    status: boolean;
+    status: string;
     pinCode: string;
     startDate: string;
     expiredDate: string;

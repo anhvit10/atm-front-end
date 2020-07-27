@@ -23,17 +23,25 @@ export class loginService {
     return this.http.get<Cards>(this.baseUrl + '/api/v1/login/' + cardNo,{headers}).pipe(
       tap(
         data=>{
-          sessionStorage.setItem('cardNo',cardNo);
-          sessionStorage.setItem('pinCode',pinCode);
-          sessionStorage.setItem('accountID',data.account.accountID.toString());
-          sessionStorage.setItem('nameCus',data.account.customer.name.toString());
-          sessionStorage.setItem('balance',data.account.balance.toString());
           this.autResponse.next(true);
         },
         err => {
           console.log(err);    
         }
       )
+    );
+  }
+
+  lockCard(cardNo: any){
+    return this.http.get<Cards>(this.baseUrl + '/api/v1/login/updateStatus/' + cardNo).pipe(
+      tap (
+        (data) => {
+          console.log(data);          
+        },
+        (err) => {
+          console.log(err);
+        }
+      ),
     );
   }
 
