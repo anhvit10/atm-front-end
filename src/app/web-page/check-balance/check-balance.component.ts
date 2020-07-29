@@ -13,17 +13,17 @@ export class CheckBalanceComponent implements OnInit {
   amount: any;
   logo ="assets/img/logo.png";
   cardNo : any;
+  // amount = sessionStorage.getItem('balance');
 
   constructor(
-      private apiService:BalanceService, 
-      private accountService: AccountService, 
+      private apiService: BalanceService, 
       private router:Router
   ) {}
 
   ngOnInit(): void {
     this.apiService.getBalance().subscribe(
       data => {
-        this.amount = data
+        this.amount = data;
       }
     );
     setTimeout(() => {
@@ -31,16 +31,9 @@ export class CheckBalanceComponent implements OnInit {
       this.router.navigateByUrl("/");
     }, 30000);
   }
-  
-  getBalance() {
-    this.accountService.getCardByID(this.cardNo).subscribe(
-      data => {
-        this.amount=data;
-      }
-    )
-  }
 
   public toLogout() {
+    sessionStorage.clear();
     this.router.navigateByUrl("/");
   }
 

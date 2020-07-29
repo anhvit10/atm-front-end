@@ -8,6 +8,7 @@ import { CanActiveGuard } from './guard/can-active.guard';
 import { ReceiptComponent } from './web-page/receipt/receipt.component';
 import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-screen.component';
 import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
+import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "receipt", component: ReceiptComponent, canActivate: [CanActiveGuard]},
   { path: "withdraw", component: WithdrawScreenComponent, canActivate: [CanActiveGuard]},
   { path: "history", component: HistoryScreenComponent, canActivate: [CanActiveGuard]},
+  { path: "other", component: OtherMoneyComponent, canActivate: [CanActiveGuard]},
   { path: "**", component: PageNotFoundComponent}
 ];
 

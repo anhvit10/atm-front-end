@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+.top img {
+    width: 210px;
+    height: 120px;
+    margin-bottom: -10px;
+}
+
+.top pre {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.main {
+    border: 3px solid black;
+    height: 570px;
+    margin-top: 40px;
+    padding-left: 15px;
+}
+
+.control-button {
+    margin-top: 235px;
+}
+
+.control-button button{
+    margin: 30px;
+    margin-left: 5px;
+    height: 50px;
+    width: 150px;
+}

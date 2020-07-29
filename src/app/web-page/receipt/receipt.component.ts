@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
+import { BalanceService } from 'src/app/services/balance.service';
 
 @Component({
   selector: 'app-receipt',
@@ -9,8 +10,8 @@ import { formatDate } from '@angular/common';
 })
 
 export class ReceiptComponent implements OnInit {
-  
-  constructor(private router: Router) {}
+
+  constructor( private router: Router, private balanceService: BalanceService) {}
 
   today = new Date();
   rcTodays='';
@@ -20,7 +21,12 @@ export class ReceiptComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = sessionStorage.getItem('nameCus');
-    this.balance = sessionStorage.getItem('balance');
+    // this.balance = sessionStorage.getItem('balance');
+    this.balanceService.getBalance().subscribe(
+      data => {
+        this.balance = data;
+      }
+    );
     this.rcTodays = formatDate(this.today,'dd-MM-yyyy','en-US', '+0700');
     this.rcTime = formatDate(this.today,'hh:mm:ss a','en-US', '+0700');
 

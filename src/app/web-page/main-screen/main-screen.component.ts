@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class MainScreenComponent implements OnInit {
   
   public logo = "assets/img/logo.png";
-  public button = "assets/img/button.png";
 
   constructor(private router: Router) {}
 

@@ -22,7 +22,7 @@ export class loginService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + window.btoa(cardNo+":"+pinCode)});
     return this.http.get<Cards>(this.baseUrl + '/api/v1/login/' + cardNo,{headers}).pipe(
       tap(
-        data=>{
+        (data)=>{
           this.autResponse.next(true);
         },
         err => {

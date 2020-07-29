@@ -15,7 +15,7 @@
                     <button>
                         BUTTON 2
                     </button>
-                    <button>
+                    <button type="submit" (click)="withdraw()">
                         BUTTON 3
                     </button>
                 </div>
@@ -25,25 +25,29 @@
                         <pre>DANCOSAN BANK</pre>
                     </div>
                     <hr>
-                    <div class="amount container">
-                        <div class="container">
-                            <h4> Choose amount below or enter your amount you want...</h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div>
-                                    <button>{{am1 | price}}</button>
-                                    <button>{{am3 | price}}</button>
-                                    <button>{{am5 | price}}</button>
-                                </div>
+                    <div class="label container">
+                            <h4>Enter your amount you want to withdraw below.</h4>
+                            <h4>The number you enter has to divisible to 50.000đ</h4>
+                    </div>
+                    <div class="form container">
+                        <form [formGroup]= "otherForm" novalidate>
+                            <div class="form-group">
+                                <label for="other">Please Enter Here ...</label>
+                                <input type="text" id="other" formControlName="amount" class="form-control">
                             </div>
-                            <div class="col-md-5">
-                                <div>
-                                    <button>{{am2 | price}}</button>
-                                    <button>{{am4 | price}}</button>
-                                    <button>Enter Other</button>
-                                </div>
-                            </div>                          
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <button class="btn1 btn-success" disabled>OK</button>
+                            </div>
+                            <div class="col-md-8">
+
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn1 btn-danger" disabled>CANCEL</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +58,7 @@
                     <button>
                         BUTTON 5
                     </button>
-                    <button (click)="toOther()">
+                    <button (click)="toLogout()">
                         BUTTON 6
                     </button>
                 </div>

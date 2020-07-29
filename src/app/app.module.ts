@@ -15,6 +15,7 @@ import { loginService } from './services/login.service';
 import { ReceiptComponent } from './web-page/receipt/receipt.component';
 import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-screen.component';
 import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
+import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HistoryScreenComponent } from './web-page/history-screen/history-screen
     PricePipe,
     ReceiptComponent,
     WithdrawScreenComponent,
-    HistoryScreenComponent
+    HistoryScreenComponent,
+    OtherMoneyComponent
     ],
   imports: [
     BrowserModule,

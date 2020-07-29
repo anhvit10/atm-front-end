@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history-screen',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history-screen.component.css']
 })
 export class HistoryScreenComponent implements OnInit {
+  public logo = "assets/img/logo.png";
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      sessionStorage.clear();
+      this.router.navigateByUrl("/");
+    }, 30000);
   }
 
 }
