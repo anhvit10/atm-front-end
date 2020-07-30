@@ -14,26 +14,28 @@ export class ReceiptComponent implements OnInit {
   constructor( private router: Router, private balanceService: BalanceService) {}
 
   today = new Date();
-  rcTodays='';
-  rcTime='';
+  rcTodays= '';
+  rcTime= '';
   name: String;
   balance: any;
 
   ngOnInit(): void {
     this.name = sessionStorage.getItem('nameCus');
-    // this.balance = sessionStorage.getItem('balance');
     this.balanceService.getBalance().subscribe(
-      data => {
+      (data) => {
         this.balance = data;
+      },
+      (err) => {
+        console.log(err);
       }
     );
     this.rcTodays = formatDate(this.today,'dd-MM-yyyy','en-US', '+0700');
     this.rcTime = formatDate(this.today,'hh:mm:ss a','en-US', '+0700');
 
-    setTimeout(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl("/");
-    }, 30000);
+    // setTimeout(() => {
+    //   sessionStorage.clear();
+    //   this.router.navigateByUrl("/");
+    // }, 60000);
   }
 
 

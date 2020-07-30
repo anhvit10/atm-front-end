@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Cards } from 'src/app/models/cards';
-import { loginService } from 'src/app/services/login.service';
 import { WithdrawService } from 'src/app/services/withdraw.service';
 
 @Component({
@@ -23,6 +20,10 @@ export class OtherMoneyComponent implements OnInit {
     this.otherForm = new FormGroup({
       amount: new FormControl()
     });
+    // setTimeout(() => {
+    //   sessionStorage.clear();
+    //   this.router.navigateByUrl('/');
+    // }, 60000);
   }
 
   public toLogout() {

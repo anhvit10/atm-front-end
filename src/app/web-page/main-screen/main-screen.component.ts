@@ -13,10 +13,10 @@ export class MainScreenComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl("/");
-    }, 60000);
+    // setTimeout(() => {
+    //   sessionStorage.clear();
+    //   this.router.navigateByUrl("/");
+    // }, 60000);
   }
 
   public toBalance() {

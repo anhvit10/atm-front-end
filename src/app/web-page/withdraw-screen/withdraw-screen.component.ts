@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { WithdrawService } from 'src/app/services/withdraw.service';
 
 @Component({
   selector: 'app-withdraw-screen',
@@ -15,16 +16,31 @@ export class WithdrawScreenComponent implements OnInit {
 
   public logo = "assets/img/logo.png";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private withdrawService: WithdrawService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl("/");
-    }, 120000);
+    // setTimeout(() => {
+    //   sessionStorage.clear();
+    //   this.router.navigateByUrl("/");
+    // }, 60000);
   }
 
   public toOther() {
     this.router.navigateByUrl("/other");
   }
+
+  public Withdraw(amount: number) {
+    this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), amount).subscribe(
+      res => {
+        if(res) {
+          this.router.navigateByUrl("/balance");
+        }
+      },
+      err => {
+        this.router.navigateByUrl("/");
+        console.log(err);
+      }
+    );
+  }
+
 }

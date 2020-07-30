@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   logo = "assets/img/logo.png";
   card: Cards;
   loginForm: FormGroup;
-  loginFail = 0;
   alertLogin = false;
   block = false;
 
@@ -22,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      cardNo: new FormControl("",[Validators.required, Validators.pattern("^[0-9]*$")]),
-      pinCode: new FormControl("",[Validators.required, Validators.pattern("^[0-9]*$")])
+      cardNo: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]),
+      pinCode: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")])
     });
     this.card = {
       cardNo: '',
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.card.cardNo = this.loginForm.get('cardNo').value;
     this.card.pinCode = this.loginForm.get('pinCode').value;
     this.cardService.login(this.card.cardNo, this.card.pinCode).subscribe(
-      res => {
+      (res) => {
         if(res){
           sessionStorage.setItem('cardNo',this.card.cardNo);
           sessionStorage.setItem('pinCode',this.card.pinCode);
@@ -57,9 +56,9 @@ export class LoginComponent implements OnInit {
           console.log(sessionStorage);
         };
       },
-      err => {
+      (err) => {
         this.alertLogin = true;
-        this.card.attempt += 1;
+        this.card.attempt += 1;   
         if(this.card.attempt >= 3) {
           this.cardService.lockCard(this.card.cardNo).subscribe(
             (res) => {
