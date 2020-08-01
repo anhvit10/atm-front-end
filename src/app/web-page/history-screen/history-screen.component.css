@@ -31,3 +31,12 @@
     height: 50px;
     width: 150px;
 }
+
+.table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.material {
+    text-align: center;
+}

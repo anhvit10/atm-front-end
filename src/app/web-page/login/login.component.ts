@@ -48,12 +48,14 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('nameCus',res.account.customer.name.toString());
           sessionStorage.setItem('balance',res.account.balance.toString());
           sessionStorage.setItem('status',res.status.toString());
+          sessionStorage.setItem('overdraft', res.account.overdraft.value.toString());
+          console.log(sessionStorage);
+          
           if(sessionStorage.getItem('status') != 'block'){
             this.router.navigateByUrl("/main");
           }else {
             this.block = true;
           }
-          console.log(sessionStorage);
         };
       },
       (err) => {

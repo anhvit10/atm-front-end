@@ -1,4 +1,5 @@
 import { Customer } from './customer';
+import { overDraft } from './overDraft';
 
 export class Account {
     accountID:number;
@@ -7,4 +8,5 @@ export class Account {
     customer: Customer;
     odID: number;
     wdID: number;
+    overdraft: overDraft;
 }

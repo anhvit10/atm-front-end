@@ -17,6 +17,9 @@ import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-scr
 import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
 import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { WithrawSuccessComponent } from './web-page/withraw-success/withraw-success.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +31,16 @@ import { OtherMoneyComponent } from './web-page/other-money/other-money.componen
     ReceiptComponent,
     WithdrawScreenComponent,
     HistoryScreenComponent,
-    OtherMoneyComponent
+    OtherMoneyComponent,
+    WithrawSuccessComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [loginService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WithdrawService } from 'src/app/services/withdraw.service';
 
@@ -13,17 +13,18 @@ export class OtherMoneyComponent implements OnInit {
 
   otherForm: FormGroup;
   value: number;
-
+  checkBalance = false;
+  format = false;
   constructor(private router: Router, private withdrawService: WithdrawService) { }
 
   ngOnInit(): void {
     this.otherForm = new FormGroup({
-      amount: new FormControl()
+      amount: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(50000), Validators.max(10000000)])
     });
     // setTimeout(() => {
     //   sessionStorage.clear();
     //   this.router.navigateByUrl('/');
-    // }, 60000);
+    // }, 30000);
   }
 
   public toLogout() {
@@ -32,18 +33,26 @@ export class OtherMoneyComponent implements OnInit {
   }
 
   public withdraw() {
-    this.value = this.otherForm.get('amount').value; 
-    this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), this.value).subscribe(
-      res => {
-        if(res) {
-          this.router.navigateByUrl("/balance");
+    this.value = this.otherForm.get('amount').value;
+    sessionStorage.setItem('amount', this.value.toString());
+    if ( (this.value < 10000000) && (this.value > 50000) && ((this.value % 50000) != 0)) {
+      this.checkBalance = true;
+    } else {
+      this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), this.value).subscribe(
+        res => {
+          if(res) {
+            this.router.navigateByUrl("/withdraw-success");
+          }else {
+            this.format = true;
+          }
+        },
+        err => {
+          this.router.navigateByUrl("/");
+          console.log(err);
         }
-      },
-      err => {
-        this.router.navigateByUrl("/");
-        console.log(err);
-      }
-    );
-    
+      );
+    }
   } 
+
+
 }

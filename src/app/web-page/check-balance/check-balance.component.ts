@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BalanceService } from 'src/app/services/balance.service';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-check-balance',
@@ -12,22 +13,28 @@ export class CheckBalanceComponent implements OnInit {
   amount: any;
   logo = "assets/img/logo.png";
   cardNo: any;
-
+  warning = false;
+  overdraft: any;
   constructor(
-      private apiService: BalanceService, 
+      private balanceService: BalanceService, 
       private router:Router
   ) {}
 
   ngOnInit(): void {
-    this.apiService.getBalance().subscribe(
-      data => {
+    this.overdraft = sessionStorage.getItem('overdraft');
+    this.balanceService.getBalance().subscribe(
+      (data) => {
+        console.log(data);
         this.amount = data;
+        if(this.amount === 0) {
+          this.warning = true;
+        }
       }
     );
     // setTimeout(() => {
     //   sessionStorage.clear();
     //   this.router.navigateByUrl("/");
-    // }, 60000);
+    // }, 30000);
   }
 
   public toLogout() {

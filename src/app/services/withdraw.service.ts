@@ -17,10 +17,10 @@ export class WithdrawService {
     return this.http.put<Cards>(this.baseUrl + '/api/v1/login/' + cardNo + '/withdraw', money, {headers}).pipe(
       tap (
         (data) => {
-          console.log(data);          
+          console.log('data', data);       
         },
         (err) => {
-          console.log(err);
+          console.log('err :', err);
         }
       ),
     );

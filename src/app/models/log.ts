@@ -1,10 +1,18 @@
 import { Cards } from './cards';
+import { LogType } from './log-type';
 
 export class Log {
-    logID:string;
-    withdrawDate: string;
-    withdrawAmount: string;
-    logType: string;
+    logID : any;
+    logDate: Date;
+    amount: number;
     cardId: Cards;
-    transactionType: string;
+    logtype: LogType;
+    description: any;
+    constructor(log?: object) {
+        for (const key in log) {
+          if (log.hasOwnProperty(key)) {
+            this[key] = log[key];
+          }
+        }
+      }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Log } from 'src/app/models/log';
-import { HttpClient } from '@angular/common/http';
 import { HistoryService } from 'src/app/services/history.service';
+import { ColumnMode, SortType  } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-history-screen',
@@ -11,24 +10,32 @@ import { HistoryService } from 'src/app/services/history.service';
 })
 export class HistoryScreenComponent implements OnInit {
   public logo = "assets/img/logo.png";
+  logs = [];
+  ColumnMode = ColumnMode;
+  SortType = SortType;
 
   constructor(private router: Router, private historyService: HistoryService) { }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   sessionStorage.clear();
-    //   this.router.navigateByUrl("/");
-    // }, 60000);
     let cardNo = sessionStorage.getItem("cardNo");
 
     this.historyService.getHistory(cardNo).subscribe(
       (res) => {
-        console.log('res :', res);
+        res.reverse();
+        this.logs = res;
+        this.logs.forEach(log => {
+          log.logId = log.logID;
+          log.description = log.logtype.description;          
+        });
       },
       (err) => {
         console.log(err);
       }
-    )
+    );
+    // setTimeout(() => {
+    //   sessionStorage.clear();
+    //   this.router.navigateByUrl("/");
+    // }, 30000);
     
   }
 

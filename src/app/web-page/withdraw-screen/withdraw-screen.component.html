@@ -30,6 +30,14 @@
                             <h4> Choose amount below or enter your amount you want...</h4>
                         </div>
                         <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                            <div class="col alert alert-danger" role="alert" *ngIf="checkBalance">
+                                        Your account not enough money! Please top up.
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-7">
                                 <div>
                                     <button class="btn1 btn-warning" disabled>{{am1 | price}}</button>

@@ -69,13 +69,18 @@
                                 *ngIf="loginForm.controls.pinCode.errors?.required && loginForm.controls.pinCode.touched">
                                     PIN is required!
                                 </div>
+
                                 <div class="col alert alert-danger" role="alert" 
                                 *ngIf="loginForm.controls.pinCode.errors?.minlength">
                                     PIN is too short!
                                 </div>
+
                                 <div class="col alert alert-danger" role="alert" 
                                 *ngIf="loginForm.controls.pinCode.errors?.pattern">
                                     Card Number is number only!
+                                </div>
+                                <div>
+                                    <h5>* Select the buttons on sides to continous</h5>
                                 </div>
                             </div>
                             <button class="btn1 btn-success" disabled>Login</button>

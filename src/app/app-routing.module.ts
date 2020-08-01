@@ -9,9 +9,11 @@ import { ReceiptComponent } from './web-page/receipt/receipt.component';
 import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-screen.component';
 import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
 import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
+import { WithrawSuccessComponent } from './web-page/withraw-success/withraw-success.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent 
+  { path: "", component: LoginComponent
+
   },
   { path: "main", component: MainScreenComponent, 
     canActivate: [CanActiveGuard]
@@ -26,6 +28,9 @@ const routes: Routes = [
     canActivate: [CanActiveGuard]
   },
   { path: "history", component: HistoryScreenComponent, 
+    canActivate: [CanActiveGuard]
+  },
+  { path: "withdraw-success", component: WithrawSuccessComponent, 
     canActivate: [CanActiveGuard]
   },
   { path: "other", component: OtherMoneyComponent, 

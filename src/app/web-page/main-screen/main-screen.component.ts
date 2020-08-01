@@ -16,7 +16,7 @@ export class MainScreenComponent implements OnInit {
     // setTimeout(() => {
     //   sessionStorage.clear();
     //   this.router.navigateByUrl("/");
-    // }, 60000);
+    // }, 30000);
   }
 
   public toBalance() {

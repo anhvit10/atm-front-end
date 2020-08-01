@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Log } from '../models/log';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +17,15 @@ export class HistoryService {
     let headers = new HttpHeaders({Authorization: 'Basic ' + window.btoa(cardNo + ':' + pinCode)});
 
     return this.http.get<Log>(this.baseUrl + '/api/v1/history/'+ cardNo, {headers}).pipe(
-      tap (
-        (data) => {
-          console.log('data', data);
-        },
-        (err) => {
-          console.log(err);    
+      map(data => {
+        const log: Log[] = [];
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            log.push(new Log({...data[key], logID: key}));
+          }
         }
-      )
+        return log;
+      })
     );
   }
 }

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Balance</title>
+        <title>Withdraw Success</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -26,23 +26,7 @@
                     </div>
                     <hr>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="balance">
-                                <h2>Your Account has: {{amount | price}}</h2>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-11">
-                                        <div class="col alert alert-danger" role="alert" 
-                                            *ngIf="warning">
-                                            Your account can only withdraw {{overdraft | price}} more, please recharge as possible!
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <h2>Withdraw Successfull</h2>
                     </div>
                     <div class="container">
                         <div class="row">
@@ -59,7 +43,7 @@
                     <button>
                         BUTTON 4
                     </button>
-                    <button (click)="toLogout()">
+                    <button>
                         BUTTON 5
                     </button>
                     <button>

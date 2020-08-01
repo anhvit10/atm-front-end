@@ -20,7 +20,7 @@ export class BalanceService {
     let accountID = sessionStorage.getItem('accountID');
 
     let headers = new HttpHeaders({Authorization: 'Basic ' + window.btoa(cardNo + ':' + pinCode)});
-    return this.http.get<Balance>(this.baseUrl + '/api/v1/balance/'+accountID,{headers});
+    return this.http.get<Balance>(this.baseUrl + '/api/v1/balance/'+ accountID,{headers});
   }
 
 }

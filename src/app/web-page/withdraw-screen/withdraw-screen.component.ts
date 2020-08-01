@@ -14,6 +14,8 @@ export class WithdrawScreenComponent implements OnInit {
   am4 = 5000000;
   am5 = 10000000;
 
+  checkBalance = false;
+
   public logo = "assets/img/logo.png";
 
   constructor(private router: Router, private withdrawService: WithdrawService) { }
@@ -22,7 +24,7 @@ export class WithdrawScreenComponent implements OnInit {
     // setTimeout(() => {
     //   sessionStorage.clear();
     //   this.router.navigateByUrl("/");
-    // }, 60000);
+    // }, 30000);
   }
 
   public toOther() {
@@ -30,13 +32,16 @@ export class WithdrawScreenComponent implements OnInit {
   }
 
   public Withdraw(amount: number) {
+    sessionStorage.setItem('amount', amount.toString());
     this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), amount).subscribe(
-      res => {
+      (res) => {
         if(res) {
-          this.router.navigateByUrl("/balance");
+          this.router.navigateByUrl("/withdraw-success");
+        }else {
+          this.checkBalance = true;
         }
       },
-      err => {
+      (err) => {
         this.router.navigateByUrl("/");
         console.log(err);
       }
