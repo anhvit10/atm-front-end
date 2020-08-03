@@ -12,11 +12,11 @@ export class HistoryService {
 
   private baseUrl = 'http://localhost:8080';
 
-  public getHistory(cardNo: string) {
+  public getHistory(cardNo: string, logDate: Date) {
     let pinCode = sessionStorage.getItem("pinCode");
     let headers = new HttpHeaders({Authorization: 'Basic ' + window.btoa(cardNo + ':' + pinCode)});
 
-    return this.http.get<Log>(this.baseUrl + '/api/v1/history/'+ cardNo, {headers}).pipe(
+    return this.http.get<Log>(this.baseUrl + '/api/v1/history/' + cardNo + '/' + logDate, {headers}).pipe(
       map(data => {
         const log: Log[] = [];
         for (const key in data) {

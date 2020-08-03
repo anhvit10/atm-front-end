@@ -2,7 +2,7 @@ import { Cards } from './cards';
 import { LogType } from './log-type';
 
 export class Log {
-    logID : any;
+    logID : number;
     logDate: Date;
     amount: number;
     cardId: Cards;

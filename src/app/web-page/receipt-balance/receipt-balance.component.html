@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Receipt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-sm-4">
+          <h2 style="text-align:center">RECEIPT</h2>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>Bank</th>
+                <td>DANCOSAN</td>
+              </tr>
+              <tr>
+                <th>Customer Name </th>
+                <td>{{name}}</td>
+              </tr>
+              <tr>
+                <th>Avaiable Balance</th>
+                <td>{{balance | price}}</td>
+              </tr>
+              <tr>
+                <th>Date Of Transaction </th>
+                <td>{{rcTodays}}</td>
+              </tr>
+              <tr>
+                <th>Time Of Transaction </th>
+                <td>{{rcTime}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6">
+
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+
+  </footer>
+</html>
+
+  

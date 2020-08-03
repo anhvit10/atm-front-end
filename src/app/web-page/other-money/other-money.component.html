@@ -27,46 +27,50 @@
                     <hr>
                     <div class="label container">
                             <h4>Enter your amount you want to withdraw below.</h4>
-                            <h4>The number you enter has to divisible to 50000đ</h4>
+                            <h4>The number you enter has to divisible to 50.000 đ</h4>
                     </div>
                     <div class="row">
                         <div class="col-md-2"></div>
-                        <div class="col-md-10">
-                            <div class="col alert alert-danger" role="alert" *ngIf="checkBalance">
-                                        Your account not enough money! Please top up.
+                        <div [ngSwitch]="Err" class="col-md-10">
+                            <div *ngSwitchCase="'0'" class="col alert alert-danger" role="alert">
+                                Amount must be a multiples of 50.000 ₫.
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-10">
-                            <div class="col alert alert-danger" role="alert" *ngIf="format">
-                                        Amount must be a multiples of 50000.
+
+                            <div *ngSwitchCase="'1'" class="col alert alert-danger" role="alert">
+                                Amount must be less than 50.000 ₫ and bigger than 10.000.000 ₫.
                             </div>
-                        </div>
+
+                            <div *ngSwitchCase="'2'" class="col alert alert-danger" role="alert">
+                                Your account not enough money! Please top up.
+                            </div>
+
+                            <div *ngSwitchCase="'3'" class="col alert alert-danger" role="alert">
+                                You can't withdraw beyond the limit for one day.
+                            </div>
+                        </div>   
                     </div>
                     <div class="form container">
                         <form [formGroup]= "otherForm" novalidate>
 
                             <div class="form-group">
                                 <label for="other">Please Enter Here ...</label>
-                                <input type="text" id="other" formControlName="amount" class="form-control" max="10000000" pattern="^[0-9]*$">
+                                <input type="text" id="other" formControlName="amount" class="form-control"  pattern="^[0-9]*$">
                                 <div class="col alert alert-danger" role="alert" 
                                 *ngIf="otherForm.controls.amount.errors?.required && otherForm.controls.amount.touched">
                                     Please enter number!
                                 </div>
-                                <div class="col alert alert-danger" role="alert" 
+                                <!-- <div class="col alert alert-danger" role="alert" 
                                 *ngIf="otherForm.controls.amount.errors?.min">
                                     Amount must be at least 50.000đ !
-                                </div>
+                                </div> -->
                                 <div class="col alert alert-danger" role="alert" 
                                 *ngIf="otherForm.controls.amount.errors?.pattern">
                                     Number only!
                                 </div>
-                                <div class="col alert alert-danger" role="alert" 
+                                <!-- <div class="col alert alert-danger" role="alert" 
                                 *ngIf="otherForm.controls.amount.errors?.max">
                                     Amount must be lest than 10.000.000đ !
-                                </div>
+                                </div> -->
                             </div>
 
                         </form>

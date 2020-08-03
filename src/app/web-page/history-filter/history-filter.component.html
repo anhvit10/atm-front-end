@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Withdraw</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="control-button col-md-2">
+                    <button>
+                        BUTTON 1
+                    </button>
+                    <button>
+                        BUTTON 2
+                    </button>
+                    <button>
+                        BUTTON 3
+                    </button>
+                </div>
+                <div class="col-sm-8 main">
+                    <div class="top">
+                        <img src={{logo}}>
+                        <pre>DANCOSAN BANK</pre>
+                    </div>
+                    <hr>
+                    <ngx-datatable
+                        class="material"
+                        [columnMode]="ColumnMode.force"
+                        [headerHeight]="50"
+                        [footerHeight]="50"
+                        [rows]="logs"
+                        rowHeight="62"
+                        [limit]="5" >
+                    <ngx-datatable-column name="LogID" [width]="100">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{ value }}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Description" [width]="150">
+                      <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{ value }}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="LogDate" [width]="300">
+                      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        {{ value }}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Amount" [width]="100">
+                      <ng-template let-value="value" ngx-datatable-cell-template>
+                        {{ value | price }}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+                <div class="control-button col-md-2">
+                    <button>
+                        BUTTON 4
+                    </button>
+                    <button>
+                        BUTTON 5
+                    </button>
+                    <button>
+                        BUTTON 6
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        
+    </footer>
+</html>
+
+
+

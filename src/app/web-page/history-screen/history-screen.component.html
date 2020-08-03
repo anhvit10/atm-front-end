@@ -9,13 +9,13 @@
         <div class="container">
             <div class="row">
                 <div class="control-button col-md-2">
-                    <button>
+                    <button (click)="toHistory(7)">
                         BUTTON 1
                     </button>
-                    <button>
+                    <button (click)="toHistory(180)">
                         BUTTON 2
                     </button>
-                    <button>
+                    <button (click)="toHistory(730)">
                         BUTTON 3
                     </button>
                 </div>
@@ -25,43 +25,38 @@
                         <pre>DANCOSAN BANK</pre>
                     </div>
                     <hr>
-                    <!-- <div class="table container">            
-                        <table class="table table-bordered">
-                          <thead>
-                            <tr>
-                              <th>LogType</th>
-                              <th>DateTime</th>
-                              <th>Amount</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let l of logs">
-                              <td>{{l.logtype.description}}</td>
-                              <td>{{l.logDate}}</td>
-                              <td>{{l.amount}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </div> -->
-                    <ngx-datatable
-                        class="material"
-                        [rows]="logs"
-                        [columns]="[{ name: 'logId' }, { name: 'amount' }, { name: 'logDate' }, { name: 'description' }]"
-                        [columnMode]="ColumnMode.force"
-                        [headerHeight]="50"
-                        [footerHeight]="50"
-                        rowHeight="31"
-                        [limit]="10" >
-                    </ngx-datatable>
+                <div class="amount container">
+                    <div class="container">
+                        <h4> Choose time criteria to view transaction history.</h4>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                            <div class="col-md-7">
+                                <div>
+                                    <button class="btn1 btn-warning" disabled>1 WEEK AGO</button>
+                                    <button class="btn1 btn-warning" disabled>6 MONTH AGO</button>
+                                    <button class="btn1 btn-warning" disabled>2 YEAR AGO</button>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div>
+                                    <button class="btn1 btn-warning" disabled>1 MONTH AGO</button>
+                                    <button class="btn1 btn-warning" disabled>1 YEAR AGO</button>
+                                    <button class="btn1 btn-warning" disabled>5 YEAR AGO</button>
+                                </div>
+                            </div>                          
+                        </div>
+                    </div>
                 </div>
                 <div class="control-button col-md-2">
-                    <button>
+                    <button (click)="toHistory(30)">
                         BUTTON 4
                     </button>
-                    <button>
+                    <button (click)="toHistory(365)">
                         BUTTON 5
                     </button>
-                    <button>
+                    <button (click)="toHistory(1825)">
                         BUTTON 6
                     </button>
                 </div>

@@ -13,9 +13,8 @@ export class WithdrawScreenComponent implements OnInit {
   am3 = 2000000;
   am4 = 5000000;
   am5 = 10000000;
-
-  checkBalance = false;
-
+  typeRes: any;
+  Err : any;
   public logo = "assets/img/logo.png";
 
   constructor(private router: Router, private withdrawService: WithdrawService) { }
@@ -35,10 +34,15 @@ export class WithdrawScreenComponent implements OnInit {
     sessionStorage.setItem('amount', amount.toString());
     this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), amount).subscribe(
       (res) => {
-        if(res) {
+        this.typeRes = res;
+        if(this.typeRes === 4) {
           this.router.navigateByUrl("/withdraw-success");
-        }else {
-          this.checkBalance = true;
+        // }else if(this.typeRes === 1){
+        //   this.Err = '1';
+        }else if(this.typeRes === 2){
+          this.Err = '2';
+        }else if(this.typeRes === 3){
+          this.Err = '3';
         }
       },
       (err) => {

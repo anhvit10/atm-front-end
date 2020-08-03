@@ -60,6 +60,9 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.alertLogin = true;
+        setTimeout(() => {
+          this.alertLogin = false;
+        }, 2000);
         this.card.attempt += 1;   
         if(this.card.attempt >= 3) {
           this.cardService.lockCard(this.card.cardNo).subscribe(

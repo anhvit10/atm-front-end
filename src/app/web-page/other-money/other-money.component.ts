@@ -13,8 +13,8 @@ export class OtherMoneyComponent implements OnInit {
 
   otherForm: FormGroup;
   value: number;
-  checkBalance = false;
-  format = false;
+  typeRes :any;
+  Err: any; 
   constructor(private router: Router, private withdrawService: WithdrawService) { }
 
   ngOnInit(): void {
@@ -35,24 +35,25 @@ export class OtherMoneyComponent implements OnInit {
   public withdraw() {
     this.value = this.otherForm.get('amount').value;
     sessionStorage.setItem('amount', this.value.toString());
-    if ( (this.value < 10000000) && (this.value > 50000) && ((this.value % 50000) != 0)) {
-      this.checkBalance = true;
-    } else {
-      this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), this.value).subscribe(
-        res => {
-          if(res) {
-            this.router.navigateByUrl("/withdraw-success");
-          }else {
-            this.format = true;
-          }
-        },
-        err => {
-          this.router.navigateByUrl("/");
-          console.log(err);
+    this.withdrawService.withdraw(sessionStorage.getItem('cardNo'), this.value).subscribe(
+      (res) => {
+        this.typeRes = res;
+        if(this.typeRes === 4) {
+          this.router.navigateByUrl("/withdraw-success");
+        }else if(this.typeRes === 0){
+          this.Err = '0';  
+        }else if(this.typeRes === 1){
+          this.Err = '1';
+        }else if(this.typeRes === 2){
+          this.Err = '2';
+        }else if(this.typeRes === 3){
+          this.Err = '3';
         }
-      );
-    }
+      },
+      (err) => {
+        this.router.navigateByUrl("/");
+        console.log(err);
+      }
+    ); 
   } 
-
-
 }

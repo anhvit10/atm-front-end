@@ -43,7 +43,7 @@ export class CheckBalanceComponent implements OnInit {
   }
 
   public toReceipt() {
-    this.router.navigateByUrl("/receipt");
+    this.router.navigateByUrl("/receiptBalance");
   }
 
 

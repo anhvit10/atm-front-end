@@ -10,6 +10,8 @@ import { WithdrawScreenComponent } from './web-page/withdraw-screen/withdraw-scr
 import { HistoryScreenComponent } from './web-page/history-screen/history-screen.component';
 import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
 import { WithrawSuccessComponent } from './web-page/withraw-success/withraw-success.component';
+import { ReceiptBalanceComponent } from './web-page/receipt-balance/receipt-balance.component';
+import { HistoryFilterComponent } from './web-page/history-filter/history-filter.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent
@@ -24,10 +26,16 @@ const routes: Routes = [
   { path: "receipt", component: ReceiptComponent, 
     canActivate: [CanActiveGuard]
   },
+  { path: "receiptBalance", component: ReceiptBalanceComponent, 
+    canActivate: [CanActiveGuard]
+  },
   { path: "withdraw", component: WithdrawScreenComponent, 
     canActivate: [CanActiveGuard]
   },
   { path: "history", component: HistoryScreenComponent, 
+    canActivate: [CanActiveGuard]
+  },
+  { path: "history-filter", component: HistoryFilterComponent, 
     canActivate: [CanActiveGuard]
   },
   { path: "withdraw-success", component: WithrawSuccessComponent, 
