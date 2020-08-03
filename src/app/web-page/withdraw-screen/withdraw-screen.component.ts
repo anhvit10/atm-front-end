@@ -20,10 +20,7 @@ export class WithdrawScreenComponent implements OnInit {
   constructor(private router: Router, private withdrawService: WithdrawService) { }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   sessionStorage.clear();
-    //   this.router.navigateByUrl("/");
-    // }, 30000);
+    
   }
 
   public toOther() {
@@ -37,8 +34,6 @@ export class WithdrawScreenComponent implements OnInit {
         this.typeRes = res;
         if(this.typeRes === 4) {
           this.router.navigateByUrl("/withdraw-success");
-        // }else if(this.typeRes === 1){
-        //   this.Err = '1';
         }else if(this.typeRes === 2){
           this.Err = '2';
         }else if(this.typeRes === 3){

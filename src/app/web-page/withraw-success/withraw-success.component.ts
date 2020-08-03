@@ -17,4 +17,9 @@ export class WithrawSuccessComponent implements OnInit {
   public toReceipt() {
     this.router.navigateByUrl("/receipt");
   }
+
+  public toLogout() {
+    sessionStorage.clear();
+    this.router.navigateByUrl("/");
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Log } from '../models/log';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

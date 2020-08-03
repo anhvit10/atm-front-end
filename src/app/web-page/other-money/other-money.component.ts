@@ -21,10 +21,7 @@ export class OtherMoneyComponent implements OnInit {
     this.otherForm = new FormGroup({
       amount: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(50000), Validators.max(10000000)])
     });
-    // setTimeout(() => {
-    //   sessionStorage.clear();
-    //   this.router.navigateByUrl('/');
-    // }, 30000);
+    
   }
 
   public toLogout() {

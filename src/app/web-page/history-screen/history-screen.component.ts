@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HistoryService } from 'src/app/services/history.service';
 import { ColumnMode, SortType  } from '@swimlane/ngx-datatable';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-history-screen',
@@ -15,7 +14,7 @@ export class HistoryScreenComponent implements OnInit {
   ColumnMode = ColumnMode;
   SortType = SortType;
   
-  constructor(private router: Router, private historyService: HistoryService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

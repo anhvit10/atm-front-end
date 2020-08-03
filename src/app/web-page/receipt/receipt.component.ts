@@ -22,6 +22,7 @@ export class ReceiptComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = sessionStorage.getItem('nameCus');
+
     this.balanceService.getBalance().subscribe(
       (data) => {
         this.balance = data;
@@ -30,13 +31,16 @@ export class ReceiptComponent implements OnInit {
         console.log(err);
       }
     );
+
     this.rcTodays = formatDate(this.today,'dd-MM-yyyy','en-US', '+0700');
     this.rcTime = formatDate(this.today,'hh:mm:ss a','en-US', '+0700');
     this.amount = sessionStorage.getItem('amount');
+
     setTimeout(() => {
       sessionStorage.clear();
       this.router.navigateByUrl("/");
     }, 5000);
+    
   }
 
 

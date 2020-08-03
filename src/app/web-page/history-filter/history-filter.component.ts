@@ -32,7 +32,6 @@ export class HistoryFilterComponent implements OnInit {
       (res) => {
         console.log(res);
         res.reverse();
-        // console.log(res);
         this.logs = res;
         this.logs.forEach(log => {
           log.logId = log.logID;

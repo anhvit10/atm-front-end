@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BalanceService } from 'src/app/services/balance.service';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-check-balance',
@@ -31,10 +30,7 @@ export class CheckBalanceComponent implements OnInit {
         }
       }
     );
-    // setTimeout(() => {
-    //   sessionStorage.clear();
-    //   this.router.navigateByUrl("/");
-    // }, 30000);
+
   }
 
   public toLogout() {

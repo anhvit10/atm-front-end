@@ -15,7 +15,6 @@ import { HistoryFilterComponent } from './web-page/history-filter/history-filter
 
 const routes: Routes = [
   { path: "", component: LoginComponent
-
   },
   { path: "main", component: MainScreenComponent, 
     canActivate: [CanActiveGuard]
