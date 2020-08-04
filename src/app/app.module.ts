@@ -18,6 +18,8 @@ import { HistoryScreenComponent } from './web-page/history-screen/history-screen
 import { OtherMoneyComponent } from './web-page/other-money/other-money.component';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+
 import { WithrawSuccessComponent } from './web-page/withraw-success/withraw-success.component';
 import { ReceiptBalanceComponent } from './web-page/receipt-balance/receipt-balance.component';
 import { HistoryFilterComponent } from './web-page/history-filter/history-filter.component';

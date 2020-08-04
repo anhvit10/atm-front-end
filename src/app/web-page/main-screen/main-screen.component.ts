@@ -28,4 +28,9 @@ export class MainScreenComponent implements OnInit {
     this.router.navigateByUrl("/history");
   }
 
+  public toLogOut() {
+    sessionStorage.clear();
+    this.router.navigateByUrl("/");
+  }
+
 }
