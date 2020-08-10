@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WithdrawService } from 'src/app/services/withdraw.service';
 
+import * as global from 'src/app/models/global';
+
 @Component({
   selector: 'app-withdraw-screen',
   templateUrl: './withdraw-screen.component.html',
@@ -13,14 +15,18 @@ export class WithdrawScreenComponent implements OnInit {
   am3 = 2000000;
   am4 = 5000000;
   am5 = 10000000;
+
   typeRes: any;
   Err : any;
-  public logo = "assets/img/logo.png";
+  bankName = global.bankName;
+  logo = global.logo;
 
-  constructor(private router: Router, private withdrawService: WithdrawService) { }
+  constructor(
+    private router: Router, 
+    private withdrawService: WithdrawService
+  ) {}
 
   ngOnInit(): void {
-    
   }
 
   public toOther() {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BalanceService } from 'src/app/services/balance.service';
 
+import * as global from 'src/app/models/global';
+
 @Component({
   selector: 'app-check-balance',
   templateUrl: './check-balance.component.html',
@@ -9,11 +11,16 @@ import { BalanceService } from 'src/app/services/balance.service';
 })
 
 export class CheckBalanceComponent implements OnInit {
+
+  bankName = global.bankName;
+  logo = global.logo;
+
   amount: any;
-  logo = "assets/img/logo.png";
   cardNo: any;
-  warning = false;
   overdraft: any;
+
+  warning = false;
+  
   constructor(
       private balanceService: BalanceService, 
       private router:Router

@@ -9,14 +9,18 @@ import { BalanceService } from 'src/app/services/balance.service';
 })
 export class ReceiptBalanceComponent implements OnInit {
 
-  constructor( private router: Router, private balanceService: BalanceService) {}
+  constructor( 
+    private router: Router, 
+    private balanceService: BalanceService
+  ) {}
 
   today = new Date();
-  rcTodays= '';
-  rcTime= '';
   name: String;
   balance: any;
   amount: any;
+
+  rcTodays= '';
+  rcTime= '';
 
   ngOnInit(): void {
     this.name = sessionStorage.getItem('nameCus');
@@ -32,11 +36,14 @@ export class ReceiptBalanceComponent implements OnInit {
     this.rcTime = formatDate(this.today,'hh:mm:ss a','en-US', '+0700');
     
     setTimeout(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl("/");
+      this.logOut();
     }, 5000);
   }
 
+  private logOut() {
+    sessionStorage.clear();
+    this.router.navigateByUrl("/");
+  }
 
 }
 

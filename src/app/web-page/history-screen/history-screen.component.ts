@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HistoryService } from 'src/app/services/history.service';
 import { ColumnMode, SortType  } from '@swimlane/ngx-datatable';
+
+import * as global from 'src/app/models/global';
 
 @Component({
   selector: 'app-history-screen',
@@ -9,12 +10,17 @@ import { ColumnMode, SortType  } from '@swimlane/ngx-datatable';
   styleUrls: ['./history-screen.component.css']
 })
 export class HistoryScreenComponent implements OnInit {
-  public logo = "assets/img/logo.png";
+
+  bankName = global.bankName;
+  logo = global.logo;
   logs = [];
+
   ColumnMode = ColumnMode;
   SortType = SortType;
   
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }

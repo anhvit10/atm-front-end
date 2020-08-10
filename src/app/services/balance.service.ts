@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as global from '../models/global';
 
 export class Balance{
   constructor( public balance: number){}
@@ -10,11 +11,13 @@ export class Balance{
 })
 export class BalanceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient
+  ) {}
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = global.server;
 
-  getBalance(){
+  public getBalance() {
     let cardNo= sessionStorage.getItem("cardNo");
     let pinCode = sessionStorage.getItem("pinCode");
     let accountID = sessionStorage.getItem('accountID');

@@ -9,8 +9,8 @@
 .top pre {
     display: inline-block;
     float: right;
-    margin-top: 10px;
-    font-size: 70px;
+    margin-top: 20px;
+    font-size: 55px;
     font-weight: 600;
 }
 
@@ -53,4 +53,8 @@
 
 .material {
     text-align: center;
+}
+
+ngx-datatable {
+    box-shadow: none !important;
 }

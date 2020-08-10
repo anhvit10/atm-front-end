@@ -3,14 +3,18 @@ import { Log } from '../models/log';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+import * as global from '../models/global';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) {}
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = global.server;
 
   public getHistory(cardNo: string, logDate: Date) {
     let pinCode = sessionStorage.getItem("pinCode");

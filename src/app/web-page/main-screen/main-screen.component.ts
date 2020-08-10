@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import * as global from 'src/app/models/global';
+
 @Component({
   selector: 'app-main-screen',
   templateUrl: './main-screen.component.html',
@@ -8,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class MainScreenComponent implements OnInit {
   
-  public logo = "assets/img/logo.png";
+  bankName = global.bankName;
+  logo = global.logo;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-
   }
 
   public toBalance() {
@@ -28,9 +32,8 @@ export class MainScreenComponent implements OnInit {
     this.router.navigateByUrl("/history");
   }
 
-  public toLogOut() {
+  public logOut () {
     sessionStorage.clear();
     this.router.navigateByUrl("/");
   }
-
 }

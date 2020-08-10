@@ -3,19 +3,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WithdrawService } from 'src/app/services/withdraw.service';
 
+import * as global from 'src/app/models/global';
+
 @Component({
   selector: 'app-other-money',
   templateUrl: './other-money.component.html',
   styleUrls: ['./other-money.component.css']
 })
 export class OtherMoneyComponent implements OnInit {
-  public logo = "assets/img/logo.png";
+  bankName = global.bankName;
+  logo = global.logo;
 
   otherForm: FormGroup;
   value: number;
   typeRes :any;
   Err: any; 
-  constructor(private router: Router, private withdrawService: WithdrawService) { }
+
+  constructor(
+    private router: Router, 
+    private withdrawService: WithdrawService
+  ) {}
 
   ngOnInit(): void {
     this.otherForm = new FormGroup({

@@ -4,15 +4,19 @@ import { Cards } from '../models/cards';
 import { BehaviorSubject } from 'rxjs';
 import {  tap } from 'rxjs/operators';
 
+import * as global from '../models/global';
+
 @Injectable({
   providedIn: 'root'
 })  
 export class loginService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = global.server;
   public autResponse = new BehaviorSubject<boolean>(null);
 
-  constructor(private http:HttpClient) {}
+  constructor(
+    private http:HttpClient
+  ) {}
 
   public login(cardNo: string, pinCode: string) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + window.btoa(cardNo +":"+ pinCode)});
@@ -21,7 +25,7 @@ export class loginService {
         (data)=>{
           this.autResponse.next(true);
         },
-        err => {
+        (err) => {
           console.log(err);    
         }
       )

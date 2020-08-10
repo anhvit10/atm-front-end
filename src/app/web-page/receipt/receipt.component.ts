@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { BalanceService } from 'src/app/services/balance.service';
@@ -11,14 +11,18 @@ import { BalanceService } from 'src/app/services/balance.service';
 
 export class ReceiptComponent implements OnInit {
 
-  constructor( private router: Router, private balanceService: BalanceService) {}
+  constructor(
+    private router: Router, 
+    private balanceService: BalanceService
+  ) {}
 
   today = new Date();
-  rcTodays= '';
-  rcTime= '';
   name: String;
   balance: any;
   amount: any;
+
+  rcTodays= '';
+  rcTime= '';
 
   ngOnInit(): void {
     this.name = sessionStorage.getItem('nameCus');
@@ -37,11 +41,14 @@ export class ReceiptComponent implements OnInit {
     this.amount = sessionStorage.getItem('amount');
 
     setTimeout(() => {
-      sessionStorage.clear();
-      this.router.navigateByUrl("/");
+      this.logOut();
     }, 5000);
     
   }
 
+  private logOut() {
+    sessionStorage.clear();
+    this.router.navigateByUrl("/");
+  }
 
 }

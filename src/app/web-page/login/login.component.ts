@@ -5,19 +5,28 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { loginService } from 'src/app/services/login.service';
 import { Cards } from 'src/app/models/cards';
 
+import * as global from 'src/app/models/global';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  logo = "assets/img/logo.png";
+
+  bankName = global.bankName;
+  logo = global.logo;
+
   card: Cards;
   loginForm: FormGroup;
+  
   alertLogin = false;
   block = false;
 
-  constructor(private cardService: loginService, private router: Router) { }
+  constructor( 
+      private cardService: loginService, 
+      private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({

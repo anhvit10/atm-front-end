@@ -22,17 +22,32 @@
                 <div class="col-sm-8 main">
                     <div class="top">
                         <img src={{logo}}>
-                        <pre>DANCOSAN BANK</pre>
+                        <pre>{{bankName}}</pre>
                     </div>
                     <hr>
+                    <!-- #myTable
+                    class="material"
+                    [rows]="logs"
+                    [columnMode]="'force'"
+                    [headerHeight]="50"
+                    [loadingIndicator]="isLoading"
+                    [scrollbarV]="true"
+                    [footerHeight]="50"
+                    [rowHeight]="50"
+                    [externalPaging]="true"
+                    [count]="page.totalElements"
+                    [offset]="page.pageNumber"
+                    (page)='setPage($event)' -->
+                    
                     <ngx-datatable
-                        class="material"
+                    class="material"
                         [columnMode]="ColumnMode.force"
-                        [headerHeight]="50"
+                        [headerHeight]="40"
                         [footerHeight]="50"
                         [rows]="logs"
-                        rowHeight="62"
-                        [limit]="5" >
+                        rowHeight="61"
+                        [limit]="5"> 
+                    
                     <ngx-datatable-column name="LogID" [width]="100">
                         <ng-template let-value="value" ngx-datatable-cell-template>
                         {{ value }}
